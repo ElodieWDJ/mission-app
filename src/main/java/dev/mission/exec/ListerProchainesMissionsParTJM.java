@@ -30,10 +30,10 @@ public class ListerProchainesMissionsParTJM implements Runnable {
 		BigDecimal big = new BigDecimal("100.9");
 		List<Mission> listMissionsTJM = missionRepository.listMissionsTJM(BigDecimal.valueOf(50));
 		if (listMissionsNext.isEmpty()) {
-			LOG.info("Pas de mission!");
+			LOG.warn("Pas de mission!");
 		} else {
 			for (Mission mission : listMissionsTJM) {
-				LOG.info(mission.getLibelle());
+				LOG.warn(mission.getLibelle());
 			}
 		}
 	}

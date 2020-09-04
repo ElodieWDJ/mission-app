@@ -11,10 +11,7 @@ import dev.mission.entite.Mission;
 public interface MissionRepository extends JpaRepository<Mission, Integer> {
 
 	@Query("SELECT m FROM Mission m WHERE m.dateDebut >= CURRENT_DATE ")
-	static List<Mission> listMissionsNext() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	List<Mission> listMissionsNext();
 
 	@Query("SELECT m FROM Mission m WHERE m.dateDebut >= CURRENT_DATE and m.tauxJournalier > :tauxJournalier ")
 	List<Mission> listMissionsTJM(BigDecimal tauxJournalier);

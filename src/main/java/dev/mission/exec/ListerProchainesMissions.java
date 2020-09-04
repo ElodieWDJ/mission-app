@@ -26,12 +26,13 @@ public class ListerProchainesMissions implements Runnable {
 
 	@Override
 	public void run() {
-		List<Mission> listMissionsNext = MissionRepository.listMissionsNext();
+		List<Mission> listMissionsNext = missionRepository.listMissionsNext();
+		LOG.warn("coucou");
 		if (listMissionsNext.isEmpty()) {
-			LOG.info("Pas de mission!");
+			LOG.warn("Pas de mission!");
 		} else {
 			for (Mission mission : listMissionsNext) {
-				LOG.info(mission.getLibelle(), mission.getTauxJournalier());
+				LOG.warn(mission.getLibelle() + " " + mission.getTauxJournalier());
 			}
 		}
 	}
