@@ -20,6 +20,10 @@ public class Mission {
 	private LocalDate dateFin;
 	private BigDecimal tauxJournalier;
 
+	public Mission() {
+
+	}
+
 	/**
 	 * @return the id
 	 */

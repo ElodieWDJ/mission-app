@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
-import dev.mission.MissionAppApplication;
 import dev.mission.entite.Mission;
 import dev.mission.repository.MissionRepository;
 
@@ -16,7 +15,7 @@ import dev.mission.repository.MissionRepository;
 
 public class ListerProchainesMissions implements Runnable {
 
-	private static final Logger LOG = LoggerFactory.getLogger(MissionAppApplication.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ListerProchainesMissions.class);
 
 	private MissionRepository missionRepository;
 
@@ -29,10 +28,10 @@ public class ListerProchainesMissions implements Runnable {
 	public void run() {
 		List<Mission> listMissionsNext = MissionRepository.listMissionsNext();
 		if (listMissionsNext.isEmpty()) {
-			LOG.warn("Pas de mission!");
+			LOG.info("Pas de mission!");
 		} else {
 			for (Mission mission : listMissionsNext) {
-				LOG.warn(mission.getLibelle());
+				LOG.info(mission.getLibelle(), mission.getTauxJournalier());
 			}
 		}
 	}

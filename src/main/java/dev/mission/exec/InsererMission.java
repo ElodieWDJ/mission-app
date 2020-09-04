@@ -10,7 +10,7 @@ import dev.mission.entite.Mission;
 import dev.mission.repository.MissionRepository;
 
 @Controller
-@Profile("insert")
+@Profile("lister")
 public class InsererMission implements Runnable {
 	private MissionRepository missionRepository;
 
